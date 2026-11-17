@@ -1,0 +1,26 @@
+# Task Definition — commercial property triage (v0.1)
+# Registered task. Engine code never edits this; specs drive everything.
+meta:
+  task_id: property_triage_v01
+  title: Commercial property submission triage
+  status: scaffold            # -> active after M0 dry run
+decision_space:
+  allowed: [STP_ACCEPT, REFER, DECLINE]
+output_schema:
+  decision: enum(meta.decision_space.allowed)
+  reason_codes:               # zero or more, each MUST cite a guide rule
+    - code_id: string        # e.g. REFER_TIV_CAP_PROXIMITY
+      guide_rule_id: string  # must resolve in underwriting_guide/rules_table.yaml
+      evidence:              # audit trail: which document/field supports it
+        doc: string
+        field: string
+        confidence: float
+  completeness_flag: [COMPLETE, GAPS, CONTRADICTORY]
+escalation_rules:
+  - trigger: any_reason_code_matches
+    pattern: "REFER_*"
+    action: route_to_underwriter_queue
+  - trigger: any_reason_code_matches
+    pattern: "DECLINE_*"
+    action: declination_workflow
+# TODO(M1): finalize reason-code enumeration alongside the guide rules table.

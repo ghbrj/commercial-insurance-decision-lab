@@ -1,0 +1,13 @@
+# Scorer Config — triage (v0.1)
+primary_metrics:
+  - three_way_confusion_matrix   # per segment + pooled
+  - bootstrap_ci                  # n=2000 resamples; exact binomial for small strata
+error_costs:                      # cost-weighted aggregate; sensitivity analysis over these
+  false_stp_accept: 10            # leakage (worst)
+  false_decline: 3                # lost business
+  false_refer_stp_should: 1       # misroute down (efficiency)
+  false_refer_decline_should: 2   # misroute up (friction on dead deals)
+secondary_metrics: [reason_code_fidelity, stp_rate, referral_rate, decision_stability_k5]
+statistical_notes:
+  paired_design: mcnemar_style   # same submissions under Jev and rules
+  disclaimers: [illustrative_not_powered]  # 60+20 submissions => directional findings only

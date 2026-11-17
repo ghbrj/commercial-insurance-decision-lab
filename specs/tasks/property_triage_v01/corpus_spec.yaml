@@ -1,0 +1,8 @@
+# Corpus Spec — synthetic commercial property submissions (v0.1)
+meta:
+  corpus_id: property_triage_v01_corp01
+  derives_from: underwriting_guide v01
+segments: {routine: 30, complex: 18, ambiguous: 12, heldout: 20}
+attributes: []          # TODO(M2): COPE codebook (enums + Unknown), TIV, CAT zone, loss history
+injectors: []            # TODO(M2): format_variation, gaps, contradictions, twins, borderline, out_of_appetite_dressed_up
+documents_per_submission: []  # e.g. acord_like_form | broker_email | sov_table | loss_run_text

@@ -1,0 +1,7 @@
+project:
+  type: default
+  output-dir: docs/_site
+title: "Commercial Insurance Decision Lab"
+subtitle: "Decision models vs. rules baselines on synthetic commercial underwriting"
+author: "Personal PoC"
+toc: true

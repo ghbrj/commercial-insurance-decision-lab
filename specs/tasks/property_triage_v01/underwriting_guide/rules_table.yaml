@@ -1,0 +1,15 @@
+# Machine-readable companion to guide.md. ONE source of truth: ids here
+# are cited by reason codes, the rules engine, and ground-truth generation.
+# tests/test_guide_consistency.py will assert guide.md <-> this table agree.
+meta:
+  guide_version: v01
+rules: []
+# TODO(M1): ~10-15 rules. Fields per rule:
+#   rule_id: ELIG_INELIGIBLE_OCCUPANCY
+#   guide_section: "2"
+#   kind: ELIGIBILITY | REFERRAL_TRIGGER | QUALIFICATION | LATENT_THRESHOLD
+#   attribute: occupancy
+#   operator: in | not_in | gt | lt | gte | lte | eq
+#   value: ...
+#   outcome: STP_ACCEPT | REFER | DECLINE
+#   reason_code: DECLINE_INELIGIBLE_OCCUPANCY

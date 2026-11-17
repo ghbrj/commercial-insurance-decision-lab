@@ -1,0 +1,7 @@
+---
+title: "limitations"
+---
+
+<!-- TODO(M5/M6): fill from the v0.2 plan. methodology: experiment design,
+     ground truth derivation, guide governance. limitations: illustrative
+     corpus size, synthetic planted signal caveats. -->
